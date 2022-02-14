@@ -6,9 +6,7 @@
  *   @warning
  */
 
-#ifndef TOAST_H
-#define TOAST_H
-
+#pragma once
 #include <QWidget>
 
 //enum EmPos{UP, DOWN, LEFT, RIGHT, CENTRE};
@@ -22,15 +20,13 @@ class Toast : public QWidget
 public:
     explicit Toast(QWidget *parent = nullptr);
     ~Toast();
-    void setText(QString str);
+    void setText(const QString& str);
     void display(int second = 2);
 
 private slots:
     void onTimeOut();
 
 private:
-    QLabel* m_label;
-    QTimer* m_timer;
+    QLabel* label_;
+    QTimer* timer_;
 };
-
-#endif // TOAST_H

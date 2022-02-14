@@ -3,57 +3,57 @@
 #include <QTimer>
 #include <QBoxLayout>
 
-Toast::Toast(QWidget *parent) : QWidget(parent)
+Toast::Toast(QWidget *parent)
+    : QWidget(parent)
+    , label_{ new QLabel(this) }
+    , timer_{ new QTimer(this) }
 {
-    this->setStyleSheet(R"(background-color: rgb(69, 69, 69);
+    setStyleSheet(R"(background-color: rgb(69, 69, 69);
                         font: 10pt "宋体";
                         color: rgb(255, 255, 255);
                         border:2px groove gray;
                         border-radius: 8px;
                         padding: 5px;)");
-    QVBoxLayout* layout = new QVBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    m_label = new QLabel(this);
-    layout->addWidget(m_label);
-    this->setLayout(layout);
 
-    m_timer = new QTimer(this);
-    connect(m_timer, &QTimer::timeout, this, &Toast::onTimeOut);
-    this->hide();
+    QVBoxLayout* layout{ new QVBoxLayout(this) };
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->addWidget(label_);
+    setLayout(layout);
+
+    connect(timer_, &QTimer::timeout, this, &Toast::onTimeOut);
+    hide();
 }
 
 Toast::~Toast()
 {
 }
 
-void Toast::setText(QString str)
+void Toast::setText(const QString& str)
 {
-    m_label->setText(str);
-    QFont font;
-    font.setFamily("宋体");
-    font.setPointSize(10);
-    QFontMetrics fm(font);
-    QRect rec = fm.boundingRect(str);
-    //字符串所占的像素宽度,高度
-    int textWidth = rec.width();
-    int textHeight = rec.height();
-    this->setFixedSize(textWidth + 20, textHeight + 20);
+    label_->setText(str);
+
+    const QFontMetrics fm(QFont{ "宋体", 10 });
+    const QRect rec{ fm.boundingRect(str) };
+    const auto textWidth{ rec.width() };
+    const auto textHeight{ rec.height() };
+    setFixedSize(textWidth + 20, textHeight + 20);
 }
 
 void Toast::display(int second)
 {
-    /*QWidget* widget = dynamic_cast<QWidget*>(this->parent());
+    auto widget = qobject_cast<QWidget*>(parent());
     if(widget)
     {
         const int w = widget->size().width();
         const int h = widget->size().height();
-    }*/
-    m_timer->start(second * 1000);
-    this->show();
+    }
+
+    timer_->start(second * 1000);
+    show();
 }
 
 void Toast::onTimeOut()
 {
-    m_timer->stop();
-    this->hide();
+    timer_->stop();
+    hide();
 }
