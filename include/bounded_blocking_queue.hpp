@@ -101,6 +101,12 @@ public:
 		return queue_.overrun_counter();
 	}
 
+	void clear()
+	{
+		std::scoped_lock lock{ mutex_ };
+		queue_.clear();
+	}
+
 private:
 	std::mutex mutex_;
 	std::condition_variable push_cv_;

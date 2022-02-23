@@ -129,6 +129,13 @@ public:
 		return overrun_counter_;
 	}
 
+	void clear()
+	{
+		head_ = 0;
+		tail_ = 0;
+		overrun_counter_ = 0;
+	}
+
 private:
 	// copy from other&& and reset it to disabled state
 	void copy_moveable(circular_queue&& other) noexcept
