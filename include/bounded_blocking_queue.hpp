@@ -103,8 +103,11 @@ public:
 
 	void clear()
 	{
-		std::scoped_lock lock{ mutex_ };
-		queue_.clear();
+		{
+			std::scoped_lock lock{ mutex_ };
+			queue_.clear();
+		}
+		pop_cv_.notify_all();
 	}
 
 private:
