@@ -30,5 +30,11 @@
 *.exe
 *.out
 *.app
-
-.vs
+*.user
+*.bin
+*.dat
+*.qm
+*.aps
+out/
+.vs/
+lib/

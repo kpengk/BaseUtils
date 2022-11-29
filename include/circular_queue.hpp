@@ -159,4 +159,3 @@ private:
 	std::size_t overrun_counter_;
 	std::vector<T> vec_;
 };
-		

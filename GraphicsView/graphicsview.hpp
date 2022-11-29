@@ -9,28 +9,31 @@ class GraphicsView : public QGraphicsView
 
 signals:
 	void reset();
+	void key_minus();
+	void key_plus();
 
 public:
 	explicit GraphicsView(QWidget* parent = nullptr);
-	GraphicsView(QGraphicsScene* scene, QWidget* parent = nullptr);
+	explicit GraphicsView(QGraphicsScene* scene, QWidget* parent = nullptr);
 	~GraphicsView();
 
 protected:
 	void wheelEvent(QWheelEvent* event) override;
 	void mouseReleaseEvent(QMouseEvent* event) override;
+	void keyPressEvent(QKeyEvent* event) override;
 
 public slots:
-	void zoomIn(int level = 1);
-	void zoomOut(int level = 1);
-	void rotateX(qreal angle);
-	void rotateY(qreal angle);
-	void rotateZ(qreal angle);
-	void resetView();
-	void setupMatrix();
+	void zoom_in(int level = 1);
+	void zoom_out(int level = 1);
+	void rotate_x(qreal angle);
+	void rotate_y(qreal angle);
+	void rotate_z(qreal angle);
+	void reset_view();
+	void setup_matrix();
 
 private:
-	int zoomValue_;
-	double rotateX_;
-	double rotateY_;
-	double rotateZ_;
+	int zoom_value_;
+	double rotate_x_;
+	double rotate_y_;
+	double rotate_z_;
 };
