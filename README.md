@@ -10,7 +10,7 @@
 
 | 名称           | 语言 | 说明                                                         |
 | -------------- | ---- | ------------------------------------------------------------ |
-| common         | C++  | 一些通用头文件，包含环形队列、环形缓冲区、时间等             |
+| Common         | C++  | 一些通用头文件，包含环形队列、环形缓冲区、时间等             |
 | ChartView      | Qt   | 实现QtCharts的移动、以鼠标位置为中心对X/Y轴分别缩放。[详细功能介绍](https://blog.csdn.net/kpengk/article/details/105800525) |
 | DatabaseHelper | Qt   | 对MySQL的简单封装                                            |
 | GraphicsView   | Qt   | Qt场景视图缩放、移动                                         |
