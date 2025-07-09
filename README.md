@@ -8,14 +8,12 @@
 	</a>
 </p>
 
-| 名称           | 语言   | 说明                                                         |
-| -------------- | ------ | ------------------------------------------------------------ |
-| include        | C++    | 一些通用头文件，包含环形队列、环形缓冲区、时间（C++20)       |
-| ChartView      | Qt     | 实现QtCharts的移动、以鼠标位置为中心对X/Y轴分别缩放。[详细功能介绍](https://blog.csdn.net/kpengk/article/details/105800525) |
-| DatabaseHelper | Qt     | 对MySQL的简单封装                                            |
-| DelEmptyDir    | Qt     | 递归删除空文件夹                                             |
-| PythonScript   | Python | 文本文件批量转换，适用于代码文件转UTF-8                      |
-| GraphicsView   | Qt     | Qt场景视图缩放、移动                                         |
-| Panel          | Qt     | 仪表盘                                                       |
-| Toast          | Qt     | 提示框，显示指定时间后自动消失                               |
+| 名称           | 语言 | 说明                                                         |
+| -------------- | ---- | ------------------------------------------------------------ |
+| common         | C++  | 一些通用头文件，包含环形队列、环形缓冲区、时间等             |
+| ChartView      | Qt   | 实现QtCharts的移动、以鼠标位置为中心对X/Y轴分别缩放。[详细功能介绍](https://blog.csdn.net/kpengk/article/details/105800525) |
+| DatabaseHelper | Qt   | 对MySQL的简单封装                                            |
+| GraphicsView   | Qt   | Qt场景视图缩放、移动                                         |
+| Panel          | Qt   | 仪表盘                                                       |
+| Toast          | Qt   | 提示框，显示指定时间后自动消失                               |
 
